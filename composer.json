@@ -1,0 +1,21 @@
+{
+    "name": "davidiglesiasgomez/no-framework-tutorial",
+    "description": "No framework tutorial",
+    "keywords": ["framewoekless", "no-framework", "tutorial", "php"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Iglesias",
+            "email": "david.iglesias@gmail.com",
+            "role": "Creator / Main Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NoFrameWorkTutorial\\": "src/"
+        }
+    }
+}
