@@ -3,7 +3,7 @@
 namespace NoFrameWorkTutorial\Controllers;
 
 use Http\Response;
-use NoFrameWorkTutorial\Template\Renderer;
+use NoFrameWorkTutorial\Template\FrontendRenderer;
 use NoFrameWorkTutorial\Page\PageReader;
 use NoFrameWorkTutorial\Page\InvalidPageException;
 
@@ -15,7 +15,7 @@ class Page
 
     public function __construct(
         Response $response,
-        Renderer $renderer,
+        FrontendRenderer $renderer,
         PageReader $pageReader
     ) {
         $this->response = $response;

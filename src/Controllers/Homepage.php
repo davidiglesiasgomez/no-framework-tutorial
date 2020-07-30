@@ -4,7 +4,7 @@ namespace NoFrameWorkTutorial\Controllers;
 
 use Http\Request;
 use Http\Response;
-use NoFrameWorkTutorial\Template\Renderer;
+use NoFrameWorkTutorial\Template\FrontendRenderer;
 
 class Homepage
 {
@@ -15,9 +15,8 @@ class Homepage
     public function __construct(
         Request $request, 
         Response $response,
-        Renderer $renderer
-    )
-    {
+        FrontendRenderer $renderer
+    ) {
         $this->request = $request;
         $this->response = $response;
         $this->renderer = $renderer;

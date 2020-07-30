@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>No Framework Tutorial</title>
+    </head>
+    <body>
+        {% for item in menuItems %}
+            <a href="{{ item['href'] }}">{{ item['text'] }}</a><br>
+        {% endfor %}
+        <hr>
+        {% block content %}
+        {% endblock %}        
+    </body>
+</html>
