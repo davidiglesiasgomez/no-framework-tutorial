@@ -14,6 +14,7 @@ $injector->define('Http\HttpRequest', [
 
 $injector->alias('Http\Response', 'Http\HttpResponse');
 $injector->share('Http\HttpResponse');
+
 $injector->alias('NoFrameWorkTutorial\Template\Renderer', 'NoFrameWorkTutorial\Template\MustacheRenderer');
 $injector->define('Mustache_Engine', [
     ':options' => [
@@ -22,5 +23,11 @@ $injector->define('Mustache_Engine', [
         ]),
     ],
 ]);
+
+$injector->define('NoFrameWorkTutorial\Page\FilePageReader', [
+    ':pageFolder' => __DIR__ . '/../pages',
+]);
+$injector->alias('NoFrameWorkTutorial\Page\PageReader', 'NoFrameWorkTutorial\Page\FilePageReader');
+$injector->share('NoFrameWorkTutorial\Page\FilePageReader');
 
 return $injector;
