@@ -46,12 +46,11 @@ switch ($routeInfo[0]) {
         $response->setStatusCode(405);
         break;
     case \FastRoute\Dispatcher::FOUND:
-        $className = $routeInfo[1][0];
-        $method = $routeInfo[1][1];
+        $className = $routeInfo[1];
         $vars = $routeInfo[2];
         
         $class = $injector->make($className);
-        $class->$method($vars);
+        $class($vars);
         break;
 }
 

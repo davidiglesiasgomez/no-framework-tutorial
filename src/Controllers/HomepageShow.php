@@ -6,7 +6,7 @@ use Http\Request;
 use Http\Response;
 use NoFrameWorkTutorial\Template\FrontendRenderer;
 
-class Homepage
+class HomepageShow
 {
     private $request;
     private $response;
@@ -22,7 +22,7 @@ class Homepage
         $this->renderer = $renderer;
     }
 
-    public function show()
+    public function __invoke()
     {
         $data = [
             'name' => $this->request->getParameter('name', 'stranger'),

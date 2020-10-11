@@ -7,7 +7,7 @@ use NoFrameWorkTutorial\Template\FrontendRenderer;
 use NoFrameWorkTutorial\Page\PageReader;
 use NoFrameWorkTutorial\Page\InvalidPageException;
 
-class Page
+class PageShow
 {
     private $response;
     private $renderer;
@@ -23,7 +23,7 @@ class Page
         $this->pageReader = $pageReader;
     }
 
-    public function show($params)
+    public function __invoke($params)
     {
         $slug = $params['slug'];
 
