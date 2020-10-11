@@ -6,11 +6,18 @@ require __DIR__ . '/../vendor/autoload.php';
 
 error_reporting(E_ALL);
 
-$environment = 'development';
+/**
+ * Enviroment file
+ */
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+$dotenv->required('ENVIROMENT')->allowedValues(['development', 'production']);
+
+$environment = $_ENV['ENVIROMENT'];
 
 /**
-* Register the error handler
-*/
+ * Register the error handler
+ */
 $whoops = new \Whoops\Run;
 if ($environment !== 'production') {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);

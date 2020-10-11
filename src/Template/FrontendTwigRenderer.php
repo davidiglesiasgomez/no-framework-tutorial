@@ -21,6 +21,7 @@ class FrontendTwigRenderer implements FrontendRenderer
     {
         $data = array_merge($data, [
             'menuItems' => $this->menuReader->readMenu(),
+            'enviroment' => $_ENV['ENVIROMENT'],
         ]);
         return $this->renderer->render($template, $data);
     }
