@@ -18,7 +18,8 @@
         "rdlowrey/auryn": "^1.4",
         "mustache/mustache": "^2.13",
         "twig/twig": "~1.0",
-        "vlucas/phpdotenv": "^5.2"
+        "vlucas/phpdotenv": "^5.2",
+        "league/plates": "^3.3"
     },
     "autoload": {
         "psr-4": {

@@ -18,21 +18,29 @@ $injector->share('Http\HttpResponse');
 // $injector->alias('NoFrameWorkTutorial\Template\Renderer', 'NoFrameWorkTutorial\Template\MustacheRenderer');
 // $injector->define('Mustache_Engine', [
 //     ':options' => [
-//         'loader' => new Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/templates', [
+//         'loader' => new Mustache_Loader_FilesystemLoader(dirname(__DIR__) . '/templates/mustache', [
 //             'extension' => '.html',
 //         ]),
 //     ],
 // ]);
 // $injector->alias('NoFrameWorkTutorial\Template\FrontendRenderer', 'NoFrameWorkTutorial\Template\FrontendMustacheRenderer');
 
-$injector->alias('NoFrameWorkTutorial\Template\Renderer', 'NoFrameWorkTutorial\Template\TwigRenderer');
-$injector->delegate('Twig_Environment', function () use ($injector) {
-    $loader = new Twig_Loader_Filesystem(dirname(__DIR__) . '/templates/twig');
-    $twig = new Twig_Environment($loader);
-    return $twig;
+// $injector->alias('NoFrameWorkTutorial\Template\Renderer', 'NoFrameWorkTutorial\Template\TwigRenderer');
+// $injector->delegate('Twig_Environment', function () use ($injector) {
+//     $loader = new Twig_Loader_Filesystem(dirname(__DIR__) . '/templates/twig');
+//     $twig = new Twig_Environment($loader);
+//     return $twig;
+// });
+// $injector->alias(\Twig\Environment::class, 'Twig_Environment');
+// $injector->alias('NoFrameWorkTutorial\Template\FrontendRenderer', 'NoFrameWorkTutorial\Template\FrontendTwigRenderer');
+
+$injector->alias('NoFrameWorkTutorial\Template\Renderer', 'NoFrameWorkTutorial\Template\PlatesRenderer');
+$injector->delegate('Plates_Engine', function () use ($injector) {
+    $plates = new \League\Plates\Engine(dirname(__DIR__) . '/templates/plates');
+    return $plates;
 });
-$injector->alias(\Twig\Environment::class, 'Twig_Environment');
-$injector->alias('NoFrameWorkTutorial\Template\FrontendRenderer', 'NoFrameWorkTutorial\Template\FrontendTwigRenderer');
+$injector->alias(\League\Plates\Engine::class, 'Plates_Engine');
+$injector->alias('NoFrameWorkTutorial\Template\FrontendRenderer', 'NoFrameWorkTutorial\Template\FrontendPlatesRenderer');
 
 $injector->define('NoFrameWorkTutorial\Page\FilePageReader', [
     ':pageFolder' => __DIR__ . '/../pages',
